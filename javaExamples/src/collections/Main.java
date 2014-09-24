@@ -8,13 +8,12 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
-class Person implements Comparable {
+class Person implements Comparable<Person> {
 	String fName;
 	String lName;
 	int age;
 	@Override
-	public int compareTo(Object o) {
-		Person p=(Person)o;
+	public int compareTo(Person p) {
 		return p.lName.compareTo(this.lName);
 	}
 	
@@ -37,7 +36,6 @@ class SortPersonByFName implements Comparator<Person> {
 public class Main {
 	
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, SecurityException, InvocationTargetException, NoSuchMethodException {
-		
 		Person p1 = new Person();
 		Person p2 = new Person();
 		p1.fName="kamal";
