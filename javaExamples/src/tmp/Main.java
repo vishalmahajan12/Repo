@@ -1,8 +1,12 @@
 package tmp;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+
 
 /*interface I {
 	defaul  void show();
@@ -45,7 +49,23 @@ public class Main {
 	void do1(Object o) {
 		System.out.println(s+=4);
 	}
+	
+	static void dis(Object o) {
+		System.out.println(o);
+		Integer i = new Integer(0);
+		i.equals(2);
+	}
+	
+	static void dis(int o) {
+		System.out.println("int - " + o);
+		Integer i = new Integer(0);
+		i.equals(2);
+	}
+	
 	public static void main(String[] args) {
+		
+		
+		
 		Az[] a = new Az[2]; 
 		Bz[] b = new Bz[2];
 		Aa[] c = new Aa[2];
@@ -54,7 +74,7 @@ public class Main {
 		new Main().do1(b);
 		new Main().do1(c);
 		new Main().do1(7);
-		/*Main m;
+		Main m;
 		switch ("one") {
 		case "one":
 			
@@ -79,21 +99,21 @@ public class Main {
 		System.out.println("size = " + set.size());
 		System.out.println(a1.equals(a2));
 		
-		for(Object a : set) { 
-			System.out.println(((Aa)a).a);
+		for(Object aa1 : set) { 
+			System.out.println(((Aa)aa1).a);
 			
 		}
 		
 		Integer i = new Integer(100000);
 		Integer i1 = new Integer(500000);
 		
-		Map<Aa, Integer> m = new HashMap<Aa, Integer>();
-		m.put(a1, i);
-		System.out.println(m.keySet());
-		m.put(a2, i1);
+		Map<Aa, Integer> mm = new HashMap<Aa, Integer>();
+		mm.put(a1, i);
+		System.out.println(mm.keySet());
+		mm.put(a2, i1);
 		a1.a = 6;
-		System.out.println(m.keySet());
-		System.out.println(m.size());
+		System.out.println(mm.keySet());
+		System.out.println(mm.size());
 
 		 //ConcurrentHashMap
         Map<String,String> myMap = new ConcurrentHashMap<String,String>();
@@ -132,7 +152,7 @@ public class Main {
         	}
         }
 
-        System.out.println("HashMap after iterator: "+myMap);*/
+        System.out.println("HashMap after iterator: "+myMap);
         
         
       //ConcurrentHashMap

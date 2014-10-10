@@ -20,6 +20,7 @@ public class ArrayProcessing {
 		System.out.println(one == o1);
 	}
 
+	@SuppressWarnings("unused")
 	private static void arraySearchTime() throws InterruptedException {
 		String[] strArray1 = new String[1000000];
 		String[] strArray2 = new String[1000000];
