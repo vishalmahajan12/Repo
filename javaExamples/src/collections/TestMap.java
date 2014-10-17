@@ -1,6 +1,7 @@
 package collections;
 
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -22,6 +23,7 @@ public class TestMap {
 	            + StaticFieldHolder.start);
 	        finalize();
 	    }
+	 
 	public static void main(String[] args) throws Exception {
 	
 	Map<Integer, String> map = new ConcurrentHashMap<Integer, String>();
@@ -32,8 +34,11 @@ public class TestMap {
 	System.out.println(map.put(2, "2"));
 	System.out.println(map);
 	
+	Map<Integer, String> map3 = new Hashtable<Integer, String>();
+	//map3.put(1 , null);
+	
 	Map<Integer, String> map2 = new TreeMap<Integer, String>();
-	//map2.put(null, "null");
+	map2.put(1, null);
 	System.out.println(map2.put(1, "null"));
 	//System.out.println(map2.put(1, "2"));
 	System.out.println(map2.put(2, "2"));

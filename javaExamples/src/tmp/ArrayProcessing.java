@@ -48,6 +48,7 @@ public class ArrayProcessing {
 		System.out.println("time taken - " + (System.nanoTime() - time));*/
 	}
 	
+	@SuppressWarnings("unused")
 	private static void listSearchTime() throws InterruptedException {
 		List<String> list = new LinkedList<String>();
 		for (int i = 0; i < 1000000; i++) {

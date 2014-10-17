@@ -1,9 +1,7 @@
 package tmp;
 
 public class A {
-	A(){
-		B a = new B();
-	}
+	A(){}
 public void a() {
 	System.out.println(getClass().getName());
 }
