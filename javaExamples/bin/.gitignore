@@ -1,8 +1,5 @@
-/collections/
-/email/
-/memory/
-/net/
-/serialization/
-/staticPackage/
-/threading/
-/tmp/
+/questions
+/tmp
+/sorting
+/collection
+/pojos
