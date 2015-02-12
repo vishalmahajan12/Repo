@@ -1,10 +1,7 @@
-package tmp;
+package net.webservicex;
 
-import net.webservicex.Currency;
-import net.webservicex.CurrencyConvertor;
-import net.webservicex.CurrencyConvertorSoap;
 
-public class CurrencyConverter {
+public class CurrencyConverterMain {
 
 	public static void main(String[] args) {
 		CurrencyConvertor currencyConvertorService = new CurrencyConvertor();
