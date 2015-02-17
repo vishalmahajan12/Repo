@@ -1,11 +1,9 @@
 package collections;
 
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
-import java.util.concurrent.ConcurrentHashMap;
 
 import staticPackage.StaticFieldHolder;
 
@@ -14,40 +12,51 @@ public class TestMap {
 	protected void finalize() throws Throwable {
 		System.out.println("finalize");
 	};
-	
-	 public void runMe() throws Throwable {
-	        System.out.println("--- Starting runMe. Static value: "
-	            + StaticFieldHolder.start);
-	        StaticFieldHolder.start = StaticFieldHolder.start + 4;
-	        System.out.println("--- Finishing runMe. Static value: "
-	            + StaticFieldHolder.start);
-	        finalize();
-	    }
-	 
+
+	public void runMe() throws Throwable {
+		System.out.println("--- Starting runMe. Static value: "
+				+ StaticFieldHolder.start);
+		StaticFieldHolder.start = StaticFieldHolder.start + 4;
+		System.out.println("--- Finishing runMe. Static value: "
+				+ StaticFieldHolder.start);
+		finalize();
+	}
+
 	public static void main(String[] args) throws Exception {
-	
-	Map<Integer, String> map = new ConcurrentHashMap<Integer, String>();
-//	Collections.sort(map.entrySet());
-//	map.put(4, null);
-	System.out.println(map.put(1, "null"));
-	System.out.println(map.put(1, "2"));
-	System.out.println(map.put(2, "2"));
-	System.out.println(map);
-	
-	Map<Integer, String> map3 = new Hashtable<Integer, String>();
-	//map3.put(1 , null);
-	
-	Map<Integer, String> map2 = new TreeMap<Integer, String>();
-	map2.put(1, null);
-	System.out.println(map2.put(1, "null"));
-	//System.out.println(map2.put(1, "2"));
-	System.out.println(map2.put(2, "2"));
-	System.out.println(map2);
-	
-	Set<Integer> set =new HashSet<Integer>();
-	System.out.println(set.add(1));
-	System.out.println(set.add(1));
-	System.out.println(set);
-}
+		test();
+	}
+
+	private static void test() {
+		HashKey a1 = new HashKey();
+		a1.a = 5;
+
+		HashKey a2 = new HashKey();
+		a2.a = 5;
+
+		Set<HashKey> set = new HashSet<HashKey>();
+		set.add(a1);
+		set.add(a2);
+
+		//a2.a = 6;
+		System.out.println("size = " + set.size());
+		System.out.println(a1.equals(a2));
+
+		for(Object aa1 : set) { 
+			System.out.println(((HashKey)aa1).a);
+
+		}
+
+		Integer i = new Integer(100000);
+		Integer i1 = new Integer(500000);
+
+		Map<HashKey, Integer> mm = new HashMap<HashKey, Integer>();
+		mm.put(a1, i);
+		System.out.println(mm);
+		mm.put(a2, i1);
+		a2.a = 6;
+		System.out.println(mm);
+		System.out.println(mm.size());
+
+	}
 
 }

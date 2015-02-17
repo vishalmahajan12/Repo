@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import pojos.Employee;
 
-public class SortEmployee implements Comparator<Employee> {
+public class SortEmployeeComparator implements Comparator<Employee> {
 
 	@Override
 	public int compare(Employee o1, Employee o2) {

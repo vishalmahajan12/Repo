@@ -20,7 +20,7 @@ public class TestEmploeeSorting {
 		employs.add(e4);
 		System.out.println(employs);
 		System.out.println("After sorting");
-		Collections.sort(employs, new SortEmployee());
+		Collections.sort(employs, new SortEmployeeComparator());
 		System.out.print(employs);
 	}
 }

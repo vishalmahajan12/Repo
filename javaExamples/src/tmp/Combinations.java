@@ -3,7 +3,7 @@ package tmp;
 public class Combinations {
 	static int r = 1;
 	public static void main(String[] args) {
-		combine("11", new StringBuilder(), 0);
+		combine("1234", new StringBuilder(), 0);
 	}
 
 	static void combine(String instr, StringBuilder stringBuilder, int index)
