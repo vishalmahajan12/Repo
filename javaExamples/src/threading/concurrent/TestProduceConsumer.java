@@ -2,11 +2,12 @@ package threading.concurrent;
 
 import java.util.ArrayList;
 
+import threading.Constants;
+
 public class TestProduceConsumer {
-	public final static int BUFFER_SIZE = 200;
 	public static void main(String[] args) throws Exception {
 
-		MessagePool messagePool = new MessagePool(BUFFER_SIZE);
+		MessagePool messagePool = new MessagePool(Constants.BUFFER_SIZE);
 
 		Produce produce = new Produce(messagePool);
 		Consumer consumer = new Consumer(messagePool);
@@ -85,7 +86,7 @@ class Produce extends Thread {
 	}
 
 	public void produceMsg() throws Exception {
-		for (int i = 0; i < TestProduceConsumer.BUFFER_SIZE; i++) {
+		for (int i = 0; i < Constants.BUFFER_SIZE; i++) {
 			msg = i + "";
 			System.out.println("produced : " + msg);
 			messagePool.addMessageToPool(msg);
@@ -120,7 +121,7 @@ class Consumer extends Thread {
 	}
 
 	public void consumeMsg() throws Exception {
-		for (int i = 0; i < TestProduceConsumer.BUFFER_SIZE; i++) {
+		for (int i = 0; i < Constants.BUFFER_SIZE; i++) {
 			System.out.println("consumed " + messagePool.getMessageFromPool());
 		}
 	}
