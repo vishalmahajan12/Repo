@@ -1,4 +1,4 @@
-package tmp;
+package threading;
 
 public class Anonymous {
 	class InnerNested {
@@ -29,9 +29,7 @@ class Job implements Runnable {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		System.out.println("a =");
-
+		System.out.println("a = 10");
 	}
 
 }

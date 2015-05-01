@@ -1,9 +1,17 @@
 package collections;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
+
+import com.sun.org.apache.xpath.internal.operations.Number;
 
 import staticPackage.StaticFieldHolder;
 
@@ -11,6 +19,10 @@ public class TestMap {
 
 	protected void finalize() throws Throwable {
 		System.out.println("finalize");
+		
+		TreeMap tm = new TreeMap();
+		tm.put(new TestMap(), "null");
+		tm.put(new TestMap(), "null");
 	};
 
 	public void runMe() throws Throwable {
@@ -23,7 +35,35 @@ public class TestMap {
 	}
 
 	public static void main(String[] args) throws Exception {
-		test();
+
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(2);
+		list.add(1);
+		list.add(5);
+		list.add(3);
+		
+		//Collections.sort(list);
+		System.out.println(list);
+		System.out.println(Collections.binarySearch(list, 2));
+		
+		Collections.sort(list,new Comp());
+		System.out.println(list);
+		System.out.println(Collections.binarySearch(list, 2, new Comp()));
+		
+	}
+	
+	static class Comp implements Comparator<Integer>{
+
+		@Override
+		public int compare(Integer o1, Integer o2) {
+			// TODO Auto-generated method stub
+			return o2.compareTo(o1);
+		}
+		
+	}
+	
+	static void dis(List<?> l) {
+			//l.add(1);
 	}
 
 	private static void test() {

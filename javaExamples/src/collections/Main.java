@@ -12,6 +12,7 @@ class Person implements Comparable<Person> {
 	String fName;
 	String lName;
 	int age;
+	@Override
 	public int compareTo(Person p) {
 		return p.lName.compareTo(this.lName);
 	}
@@ -25,6 +26,7 @@ class Person implements Comparable<Person> {
 
 class SortPersonByFName implements Comparator<Person> {
 
+	@Override
 	public int compare(Person o1, Person o2) {
 		return o1.fName.compareTo(o2.fName);
 	}

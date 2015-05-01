@@ -10,7 +10,14 @@ public class MainClass {
 	static Session session;
 	
 	public static void main(String[] args) {
-		Employ superior = prepareSuperior();
+		
+		String[] s = "asasUU-asdUcf".split("U+");
+		for(String s1 : s){
+			System.out.println(s1);
+		}
+		
+		
+		/*Employ superior = prepareSuperior();
 		save(superior);
 				
 //		Thread t = new Thread(new Runnable() {
@@ -32,7 +39,7 @@ public class MainClass {
 		
 		Employ fromDb = readEmployBy(2l);
 		System.out.println("Employ id - " + fromDb.id +" and name is " + fromDb.getName());
-		HibernateUtil.shutdown();
+		HibernateUtil.shutdown();*/
 	}
 
 	private static Employ prepareSuperior() {
@@ -67,8 +74,17 @@ public class MainClass {
 		session = openSession();
 		session.beginTransaction();
 		Employ emp = (Employ) session.get(Employ.class, id);
-		emp.getSubEmployees();
+		
+		session.getTransaction().commit();
+		session.close();
+		
+
 		emp.setName("zzzz");
+		session = openSession();
+		session.beginTransaction();
+		//emp.getSubEmployees();
+		Employ empz = (Employ) session.get(Employ.class, id);
+		System.out.println("updating.........");
 		session.update(emp);
 		Employ emp2 = (Employ) session.get(Employ.class, id);
 		session.getTransaction().commit();

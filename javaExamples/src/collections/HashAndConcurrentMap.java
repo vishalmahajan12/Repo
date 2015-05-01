@@ -1,8 +1,8 @@
 package collections;
 
-import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
@@ -11,8 +11,8 @@ public class HashAndConcurrentMap {
 
 	public static void main(String[] args) {
 		test();
-		inInsertionsReturnPreviousValue();
-		test2();
+		//inInsertionsReturnPreviousValue();
+		//test2();
 	}
 
 	private static void test2() {
@@ -30,7 +30,7 @@ public class HashAndConcurrentMap {
 
 	}
 
-	private static void inInsertionsReturnPreviousValue() {
+	private static void insertionsReturnPreviousValue() {
 		Map<Integer, String> map = new ConcurrentHashMap<Integer, String>();
 		System.out.println(map.put(1, "null"));
 		System.out.println(map.put(1, "2")); 
@@ -53,26 +53,28 @@ public class HashAndConcurrentMap {
 
 		while(it.hasNext()){
 			String key = it.next();
+			System.out.println(key);
 			if(key.equals("3")) myConMap.put(key+"new", "new3");
 		}
 		System.out.println("ConcurrentHashMap after iterator: "+myConMap);
 
 
 		//HashMap
-		Map<String, String> myHashMap = new HashMap<String,String>(myConMap);
+		Map<String, String> myHashMap = new LinkedHashMap<String,String>(myConMap);
 		myHashMap.remove("3new");
 
 		System.out.println("HashMap before iterator: "+myHashMap);
 		Iterator<String> it1 = myHashMap.keySet().iterator();
 		while(it1.hasNext()){
 			String key = it1.next();
-			if(key.equals("3")) {
+			System.out.println(key);
+			if(key.equals("6")) {
 				//myHashMap.put(key+"newhash", "new4");
-				myHashMap.remove("4");
+				myHashMap.remove("6");
 				//break;
 			}
 		}
-
 		System.out.println("HashMap after iterator: "+myHashMap);
+
 	}
 }
