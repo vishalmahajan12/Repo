@@ -1,0 +1,1 @@
+This is a example of simple GWT project with ui-binder and mutiple entry-classes
