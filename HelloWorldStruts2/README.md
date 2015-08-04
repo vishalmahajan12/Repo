@@ -1,0 +1,1 @@
+Simplest struts2 example
